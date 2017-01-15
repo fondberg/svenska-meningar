@@ -9,14 +9,23 @@ import { AngularFire } from 'angularfire2';
 export class AppComponent {
   title = 'app works!';
   user = {};
+  meningar = {};
+  displayName = '';
+  loggedIn = false;
+
   constructor(public af: AngularFire) {
+    this.meningar = af.database.list('/meningar');
     this.af.auth.subscribe(user => {
       if(user) {
+        this.loggedIn = true;
         // user logged in
+        console.log(user);
+        this.displayName = user.auth.displayName;
         this.user = user;
       }
       else {
         // user not logged in
+        this.loggedIn = false;
         this.user = {};
       }
     });

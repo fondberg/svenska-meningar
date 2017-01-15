@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MaterialModule } from '@angular/material';
+import 'hammerjs';
+
 import { AppComponent } from './app.component';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
@@ -27,6 +30,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     FormsModule,
     HttpModule

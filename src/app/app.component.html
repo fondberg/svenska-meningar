@@ -1,12 +1,32 @@
-<h1>
-    Hej {{title}}
-</h1>
-<span>Välkommen</span>
+<md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button> Svenska meningar
+    <span class="app-toolbar-filler"></span>
+    <button *ngIf="loggedIn" class="app-icon-button" (click)="logout()">
+      <i class="material-icons  app-toolbar-menu">verified_user</i>Logout
+      </button>
+    <button *ngIf="!loggedIn" class="app-icon-button" (click)="login()">
+    <i class="material-icons  app-toolbar-menu">verified_user</i>Login
+    </button>
+</md-toolbar>
 
-<div> {{ (af.auth | async)?.uid }} </div>
-<button (click)="login()">Login</button>
-<button (click)="logout()">Logout</button>
+<md-card *ngIf="loggedIn">
+    <md-card-title>Välkommen {{displayName}}</md-card-title>
+    <md-card-content>
+        <ul>
+            <li *ngFor="let mening of meningar | async">
+                {{ mening.$value }}
+            </li>
+        </ul>
+        <md-card-actions>
 
-<pre>
-{{user | json}}
+        </md-card-actions>
+    </md-card-content>
+</md-card>
+
+<pre *ngIf="false">
+{{(user.auth | async)?.uid }}
+{{af.auth | async | json}}
+{{user.auth | json}}
 </pre>
