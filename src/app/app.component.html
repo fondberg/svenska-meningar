@@ -1,14 +1,14 @@
 <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
-    </button> Svenska meningar
+    <span>Svenska meningar</span>
     <span class="app-toolbar-filler"></span>
-    <button *ngIf="loggedIn" class="app-icon-button" (click)="logout()">
-      <i class="material-icons  app-toolbar-menu">verified_user</i>Logout
-      </button>
-    <button *ngIf="!loggedIn" class="app-icon-button" (click)="login()">
-    <i class="material-icons  app-toolbar-menu">verified_user</i>Login
+
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
     </button>
+    <md-menu x-position="before" #menu="mdMenu">
+        <button *ngIf="loggedIn" md-menu-item (click)="logout()">Logout</button>
+        <button *ngIf="!loggedIn" md-menu-item (click)="login()">Login</button>
+    </md-menu>
 </md-toolbar>
 
 <md-card *ngIf="loggedIn">

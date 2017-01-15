@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AngularFire } from 'angularfire2';
 export class AppComponent {
   title = 'app works!';
   user = {};
-  meningar = {};
+  meningar: FirebaseListObservable<any>;
   displayName = '';
   loggedIn = false;
 
