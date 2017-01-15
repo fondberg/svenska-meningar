@@ -15,6 +15,8 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 export class MeningsPusselComponent implements OnChanges {
   @Input() mening: String = '';
   meningWords: Array<string> = [];
+  listOne:Array<string> = ['Coffee','Orange Juice','Red Wine','Unhealty drink!','Water'];
+
   constructor() { }
 
   shuffle(arra1) {

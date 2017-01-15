@@ -1,0 +1,9 @@
+.word-tile {
+    border: thin solid red;
+    padding: 5px;
+    background-color: #FFFCBA;
+}
+
+.menings-box {
+    border: thin solid green;
+}

@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
 
+import {DndModule} from 'ng2-dnd';
+
 import { AppComponent } from './app.component';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { MeningsPusselComponent } from './menings-pussel/menings-pussel.component';
@@ -32,6 +34,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    DndModule.forRoot(),
     MaterialModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     FormsModule,

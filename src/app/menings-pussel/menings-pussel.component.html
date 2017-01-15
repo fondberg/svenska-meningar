@@ -1,9 +1,10 @@
 <md-card *ngIf="mening.length > 0">
     <md-card-title>Sätt orden i rätt ordning</md-card-title>
     <md-card-content>
-        <md-grid-list cols="8" rowHeight="40px" gutterSize="4px" [style.background]="'lightblue'">
-            <md-grid-tile *ngFor="let word of meningWords">{{word}}</md-grid-tile>
-        </md-grid-list>
+        <div class="menings-box" dnd-sortable-container [sortableData]="meningWords">
+            <span class="word-tile" *ngFor="let word of meningWords; let i = index" dnd-sortable dnd-sortable [sortableIndex]="i">
+                  {{word}}</span>
+        </div>
         <md-card-actions>
             <button md-raised-button color="primary">Kontrollera</button>
         </md-card-actions>
