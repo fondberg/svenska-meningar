@@ -15,15 +15,16 @@
     <md-card-title>Välkommen {{displayName}}</md-card-title>
     <md-card-content>
         <ul>
-            <li *ngFor="let mening of meningar | async">
-                {{ mening.$value }}
+            <li *ngFor="let line of meningar | async">
+                <span (click)="selectedMening = line.$value"> {{line.$value}}</span>
             </li>
         </ul>
         <md-card-actions>
-
         </md-card-actions>
     </md-card-content>
 </md-card>
+
+<app-menings-pussel [mening]="selectedMening"></app-menings-pussel>
 
 <pre *ngIf="false">
 {{(user.auth | async)?.uid }}

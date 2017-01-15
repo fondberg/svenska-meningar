@@ -8,6 +8,7 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { MeningsPusselComponent } from './menings-pussel/menings-pussel.component';
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -26,7 +27,8 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MeningsPusselComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ export class AppComponent {
   user = {};
   meningar: FirebaseListObservable<any>;
   displayName = '';
+  selectedMening: String = '';
   loggedIn = false;
 
   constructor(public af: AngularFire) {
