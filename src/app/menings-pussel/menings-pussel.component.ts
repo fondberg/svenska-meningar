@@ -43,14 +43,16 @@ export class MeningsPusselComponent implements OnInit, OnDestroy {
     this.userConfSub = this.dataBaseService.usersConf.subscribe((userConf) => {
       this.userConf = userConf;
       if (!userConf[this.difficulty]) {
-        //First time playing this level
+        //First time playing this difficulty
         let props:any = {};
-        props[this.difficulty] = {level: 0};
+        props[this.difficulty] = 0;
+        this.currentLevel = 0;
         this.dataBaseService.usersConf.update(props);
+      } else {
+        this.currentLevel = this.userConf[this.difficulty];
       }
       // use instance variable for level control of current difficulty
-      this.currentLevel = userConf[this.difficulty].level;
-
+      this.currentLevel = userConf[this.difficulty];
       //console.log("UserConf retrieved:", this.userConf);
       this.meningarSub = this.dataBaseService.getMeningar(this.difficulty).mergeMap((list) => {
         //check level or set it to first item
@@ -87,8 +89,9 @@ export class MeningsPusselComponent implements OnInit, OnDestroy {
         this.error = 'Du har klarat nivån!!!';
         this.currentLevel = 0;
       }
+      // TODO:duplicate code...
       let props:any = {};
-      props[this.difficulty] = {level: this.currentLevel};
+      props[this.difficulty] = this.currentLevel;
       this.dataBaseService.usersConf.update(props);
       setTimeout(() => {
         this.error = '';

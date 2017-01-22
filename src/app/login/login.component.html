@@ -8,6 +8,6 @@
 <md-card *ngIf="(dataBaseService.af.auth | async)">
     <md-card-title>Inloggad som {{dataBaseService.displayName}}</md-card-title>
     <md-card-content>
-        <button md-raised-button color="primary" routerLink="/main">Spela!</button>
+        <button md-raised-button routerLink="/main">Spela!</button>
     </md-card-content>
 </md-card>
