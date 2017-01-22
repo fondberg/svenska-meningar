@@ -1,9 +1,9 @@
 <md-card *ngIf="mening.length > 0">
-    <md-card-title *ngIf="!error">{{difficuly}} nivå, sätt orden i rätt ordning</md-card-title>
-    <md-card-title class="error" *ngIf="error">Fel svar...</md-card-title>
+    <md-card-title *ngIf="!error">{{difficulty}}({{currentLevel+1}}), sätt orden i rätt ordning.</md-card-title>
+    <md-card-title class="error" *ngIf="error">{{error}}</md-card-title>
     <md-card-content>
         <div class="menings-box" [sortablejs]="meningWords" [sortablejsOptions]="{ animation: 100 }">
-            <span class="word-tile" [ngClass]="{'wrongAnswer': error }" *ngFor="let word of meningWords">{{word}}</span>
+            <span class="word-tile" [ngClass]="{'wrongAnswer': error }" *ngFor="let word of meningWords; let i = index" [wordTile]="i" [wordTileMening]="mening" [wordTileWord]="word">{{word}}</span>
         </div>
 
         <md-card-actions>

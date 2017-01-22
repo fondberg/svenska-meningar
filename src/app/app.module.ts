@@ -18,6 +18,7 @@ import { MainComponent } from './main/main.component';
 
 import { DataBaseService } from './database.service';
 import { LoginComponent } from './login/login.component';
+import { WordTileDirective } from './word-tile.directive';
 
 const myFirebaseAuthConfig = {
   provider: AuthProviders.Google,
@@ -46,7 +47,8 @@ export const firebaseConfig = {
     AppComponent,
     MeningsPusselComponent,
     MainComponent,
-    LoginComponent
+    LoginComponent,
+    WordTileDirective
   ],
   imports: [
     BrowserModule,

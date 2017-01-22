@@ -25,7 +25,7 @@ import {
 
 @Injectable()
 export class DataBaseService implements CanActivate {
-  meningar: FirebaseListObservable<any>;
+  //meningar: FirebaseListObservable<any>;
   usersConf: FirebaseObjectObservable<any>;
 
   user: any;
@@ -33,7 +33,6 @@ export class DataBaseService implements CanActivate {
   displayName = '';
 
   constructor(public af: AngularFire, private router: Router) {
-    this.meningar = af.database.list('/meningar');
     this.af.auth.subscribe(user => {
       if (user) {
         // user logged in
@@ -55,8 +54,10 @@ export class DataBaseService implements CanActivate {
     });
   }
 
-  getMeningar() {
-    return this.meningar;
+  getMeningar(difficulty: string) {
+    let inp = difficulty.toLowerCase();
+    return this.af.database.list('/meningar-' + inp);
+   
   }
 
   // loginGoogle() {
@@ -115,7 +116,7 @@ export class DataBaseService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     return this.af.auth.map((auth) => {
-      console.log(state);
+      //console.log(state);
       if (auth) {
         console.log('canActivate authenticated');
         return true;

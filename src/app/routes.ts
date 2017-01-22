@@ -12,7 +12,7 @@ export const routes: ModuleWithProviders = RouterModule.forRoot([
     component: MainComponent, 
     canActivate: [DataBaseService]
   },
-  { path: 'pussel/:difficuly', 
+  { path: 'pussel/:difficulty', 
     component: MeningsPusselComponent, 
     canActivate: [DataBaseService]
   },
