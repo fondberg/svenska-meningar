@@ -1,12 +1,13 @@
 <md-card *ngIf="mening.length > 0">
-    <md-card-title>Sätt orden i rätt ordning</md-card-title>
+    <md-card-title *ngIf="!error">{{difficuly}} nivå, sätt orden i rätt ordning</md-card-title>
+    <md-card-title class="error" *ngIf="error">Fel svar...</md-card-title>
     <md-card-content>
-        <div class="menings-box" dnd-sortable-container [sortableData]="meningWords">
-            <span class="word-tile" *ngFor="let word of meningWords; let i = index" dnd-sortable dnd-sortable [sortableIndex]="i">
-                  {{word}}</span>
+        <div class="menings-box" [sortablejs]="meningWords" [sortablejsOptions]="{ animation: 100 }">
+            <span class="word-tile" [ngClass]="{'wrongAnswer': error }" *ngFor="let word of meningWords">{{word}}</span>
         </div>
+
         <md-card-actions>
-            <button md-raised-button color="primary">Kontrollera</button>
+            <button md-raised-button (click)="checkCorrect()">Kontrollera</button>
         </md-card-actions>
     </md-card-content>
 </md-card>

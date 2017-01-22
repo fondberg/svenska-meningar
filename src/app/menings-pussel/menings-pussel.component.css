@@ -1,9 +1,44 @@
-.word-tile {
-    border: thin solid red;
-    padding: 5px;
-    background-color: #FFFCBA;
+/*.sortable-ghost {
+    opacity: .5;
+    background: #C8EBFB;
+    border: 2px dotted maroon;
+}
+
+.sortable-chosen {
+    border: 2px dotted blue;
+}
+
+.sortable-drag {}*/
+
+md-card * {
+    font-family: 'Kalam', cursive;
+    text-align: center;
+}
+
+md-card-actions {
+    margin-top: 25px;
+}
+
+md-card-title {
+    font-size: 18px;
 }
 
 .menings-box {
-    border: thin solid green;
+    cursor: move;
+}
+
+.word-tile {
+    font-size: 18px;
+    border-bottom: 2px solid white;
+    padding: 0px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.wrongAnswer {
+    border-bottom: 2px solid red;
+}
+
+.error {
+    color: red;
 }

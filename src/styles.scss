@@ -1,18 +1,11 @@
 @import '~@angular/material/core/theming/all-theme';
-// NOTE: Theming is currently experimental and not yet publically released!
 @include md-core();
-$primary: md-palette($md-green);
-$accent : md-palette($md-amber, A200, A100, A400);
+$primary: md-palette($md-blue);
+$accent: md-palette($md-amber, A200, A100, A400);
 $theme: md-light-theme($primary, $accent);
 @include angular-material-theme($theme);
-.m2app-dark {
-    $dark-primary: md-palette($md-green, 700, 500, 900);
-    $dark-accent: md-palette($md-blue-grey, A200, A100, A400);
-    $dark-warn: md-palette($md-deep-orange);
-    $dark-theme: md-dark-theme($dark-primary, $dark-accent, $dark-warn);
-    @include angular-material-theme($dark-theme);
-}
-
-.pelle {
-    background: yellow;
-}
+$dark-primary: md-palette($md-blue, 700, 500, 900);
+$dark-accent: md-palette($md-blue-grey, A200, A100, A400);
+$dark-warn: md-palette($md-deep-orange);
+$dark-theme: md-dark-theme($dark-primary, $dark-accent, $dark-warn);
+@include angular-material-theme($dark-theme);

@@ -1,33 +1,20 @@
 <md-toolbar color="primary">
-    <span>Svenska meningar</span>
+    <img src="assets/flagga.jpg" class="flagga">
+    <span class="appTitle">Svenska meningar</span>
     <span class="app-toolbar-filler"></span>
 
     <button md-icon-button [md-menu-trigger-for]="menu">
       <md-icon>more_vert</md-icon>
     </button>
     <md-menu x-position="before" #menu="mdMenu">
-        <button *ngIf="loggedIn" md-menu-item (click)="logout()">Logout</button>
-        <button *ngIf="!loggedIn" md-menu-item (click)="login()">Login</button>
+        <button *ngIf="dataBaseService.loggedIn" md-menu-item (click)="dataBaseService.logout()">Logout</button>
     </md-menu>
 </md-toolbar>
 
-<md-card *ngIf="loggedIn">
-    <md-card-title>Välkommen {{displayName}}</md-card-title>
-    <md-card-content>
-        <ul>
-            <li *ngFor="let line of meningar | async">
-                <span (click)="selectedMening = line.$value"> {{line.$value}}</span>
-            </li>
-        </ul>
-        <md-card-actions>
-        </md-card-actions>
-    </md-card-content>
-</md-card>
+<router-outlet></router-outlet>
 
-<app-menings-pussel [mening]="selectedMening"></app-menings-pussel>
-
-<pre *ngIf="false">
+<!--<pre *ngIf="false">
 {{(user.auth | async)?.uid }}
 {{af.auth | async | json}}
 {{user.auth | json}}
-</pre>
+</pre>-->

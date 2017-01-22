@@ -1,0 +1,9 @@
+<md-card>
+    <md-card-title>Välj nivå att spela</md-card-title>
+    <md-card-content>
+        <div *ngFor="let level of ['Lätt', 'Mellan', 'Svår']">
+            <button [routerLink]="['/pussel', level]" class="levelButton" md-raised-button>
+           {{level}}</button>
+        </div>
+    </md-card-content>
+</md-card>

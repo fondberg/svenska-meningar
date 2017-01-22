@@ -1,0 +1,9 @@
+.levelButton {
+    width: 85%;
+    margin-bottom: 15px;
+}
+
+md-card * {
+    font-family: 'Kalam', cursive;
+    text-align: center;
+}
